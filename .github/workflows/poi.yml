@@ -1,4 +1,4 @@
-name: .NET Core
+name: POI (.NET Core)
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+    - name: .NET Build
+      run: dotnet build --configuration Release --no-restore apis/poi/web/*.csproj
+    - name: Unit Tests
+      run: dotnet build --configuration Release apis/poi/tests/UnitTests/UnitTests.csproj
